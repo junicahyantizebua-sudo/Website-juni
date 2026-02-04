@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil - Juni</title>
+
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f1f5f9;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+}
+
+/* ================= SUB MENU ================= */
+.mobile-submenu {
+  position: relative;
+}
+
+.submenu-toggle {
+  cursor: pointer;
+}
+
+.submenu-list {
+  list-style: none;
+  padding-left: 16px;
+  margin-top: 8px;
+  display: none;
+}
+
+.submenu-list li {
+  margin: 6px 0;
+}
+
+.submenu-list a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.submenu-list a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-submenu.active .submenu-list {
+  display: block;
+}
+
+.mobile-submenu.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* ================= PROFIL SECTION ================= */
+.profil-section {
+  margin-top: 90px; /* tinggi navbar */
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #fff;
+}
+
+.profil-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.profil-subtitle {
+  text-align: center;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+/* ================= CARD ================= */
+.profil-card {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* BORDER GRADIENT */
+.profil-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #7c3aed, #38bdf8);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* ================= GRID ================= */
+.profil-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+}
+
+.profil-text p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* ================= INFO ================= */
+.profil-info {
+  display: grid;
+  gap: 15px;
+}
+
+.profil-info div {
+  background: rgba(255,255,255,0.25);
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.profil-info span {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark-mode .profil-section {
+  background: linear-gradient(135deg, #020617, #1e293b);
+}
+
+body.dark-mode .profil-info div {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .profil-grid {
+    grid-template-columns: 1fr;
+  }
+}
+header,
+nav {
+  margin-bottom: 0 !important;
+}
+
+.profil-section {
+  margin-top: 0 !important;
+  padding-top: 120px; /* ganti margin jadi padding */
+}
+.profil-section {
+  padding: 120px 20px 80px;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #fff;
+}
+
+.profil-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.profil-foto {
+  text-align: center;
+}
+
+.profil-foto img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.6);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.profil-deskripsi {
+  background: rgba(255,255,255,0.15);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.profil-deskripsi p {
+  line-height: 1.7;
+}
+
+.profil-data {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.profil-data li {
+  margin-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .profil-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.profil-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.profil-item {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 22px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+}
+
+.profil-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.profil-item i {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.profil-item h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.profil-item p,
+.profil-item li {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.profil-item ul {
+  padding-left: 18px;
+}
+/* WARNA TIAP KOTAK (SOFT, ANTI NORAK) */
+.profil-item:nth-child(1) {
+  background: rgba(139, 92, 246, 0.22); /* ungu */
+}
+
+.profil-item:nth-child(2) {
+  background: rgba(59, 130, 246, 0.22); /* biru */
+}
+
+.profil-item:nth-child(3) {
+  background: rgba(34, 197, 94, 0.22); /* hijau */
+}
+
+.profil-item:nth-child(4) {
+  background: rgba(244, 114, 182, 0.22); /* pink */
+}
+
+/* IKON BIAR SELARAS */
+.profil-item:nth-child(1) i { color: #ddd6fe; }
+.profil-item:nth-child(2) i { color: #bfdbfe; }
+.profil-item:nth-child(3) i { color: #bbf7d0; }
+.profil-item:nth-child(4) i { color: #fbcfe8; }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR --><nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">JUNI WEB</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu"><ul class="navbar-nav ms-auto">
+
+  <li class="nav-item">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+
+  <!-- TENTANG -->
+  <li class="nav-item mobile-submenu">
+<span class="nav-link submenu-toggle">
+  Tentang <span class="arrow">▾</span>
+</span>
+  <ul class="submenu-list">
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="pendidikan.html">Pendidikan</a></li>
+  </ul>
+</li>
+
+
+  <!-- GALERI --><li class="nav-item mobile-submenu">
+<span class="nav-link submenu-toggle">
+  Galeri <span class="arrow">▾</span>
+</span>
+  <ul class="submenu-list">
+    <li><a href="galeri-foto.html">Foto</a></li>
+    <li><a href="galeri-video.html">Video</a></li>
+  </ul>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="kontak.html">Kontak</a>
+</li>
+        <li class="nav-item ms-3">
+          <button id="darkToggle" class="btn btn-outline-light">🌙</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- PROFIL --><section class="profil-section">
+  <div class="container">
+    <h2 class="text-center mb-2">Profil Saya</h2>
+    <p class="text-center mb-5">Sekilas tentang diri saya</p>
+
+    <div class="profil-grid">
+      <!-- FOTO -->
+      <div class="profil-foto">
+        <img src="img/aku.jpg" alt="Foto Juni">
+      </div>
+
+      <!-- DESKRIPSI --><div class="profil-cards">
+
+  <div class="profil-item">
+    <i class="bi bi-person-circle"></i>
+    <h5>Tentang Saya</h5>
+    <p>
+      Saya adalah seorang pelajar yang memiliki minat dalam bidang teknologi
+      informasi, khususnya pembuatan website. Website ini dibuat sebagai media
+      pembelajaran sekaligus portofolio sederhana.
+    </p>
+  </div>
+
+  <div class="profil-item">
+    <i class="bi bi-stars"></i>
+    <h5>Kepribadian</h5>
+    <ul>
+      <li>Teliti dan sabar</li>
+      <li>Bertanggung jawab</li>
+      <li>Suka belajar mandiri</li>
+    </ul>
+  </div>
+
+  <div class="profil-item">
+    <i class="bi bi-book"></i>
+    <h5>Cara Belajar</h5>
+    <ul>
+      <li>Belajar dari internet</li>
+      <li>Praktik langsung</li>
+      <li>Memperbaiki kesalahan</li>
+    </ul>
+  </div>
+
+  <div class="profil-item">
+    <i class="bi bi-bullseye"></i>
+    <h5>Tujuan</h5>
+    <p>
+      Mengembangkan kemampuan di bidang web development dan
+      menghasilkan karya website yang rapi serta bermanfaat.
+    </p>
+  </div>
+
+</div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Juni Web</p>
+  <p>Made with ❤️ by Juni</p>
+  <p>
+    Instagram | WhatsApp | Email
+  </p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const toggle = document.getElementById("darkToggle");
+toggle.onclick = () => {
+  document.body.classList.toggle("dark-mode");
+  toggle.textContent =
+    document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+};
+</script>
+<script>
+document.querySelectorAll(".submenu-toggle").forEach(toggle => {
+  toggle.addEventListener("click", () => {
+    toggle.parentElement.classList.toggle("active");
+  });
+});
+</script>
+</body>
+</html>
