@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeri Foto | Juni</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET */
+    * {
+      box-sizing: border-box;
+    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #1e1b4b, #312e81, #4c1d95);
+  color: #f1f5f9;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+    /* NAVBAR */
+    .navbar {
+      background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+      padding: 15px 25px;
+    }
+
+    /* SUBMENU */
+    .galeri-submenu {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+      display: none;
+    }
+
+    .galeri-submenu.show {
+      display: block;
+    }
+
+    @media (max-width: 991px) {
+      .galeri-submenu {
+        position: static;
+        background: transparent;
+        padding-left: 15px;
+      }
+
+      .galeri-submenu li a {
+        color: #e5e7eb;
+        font-size: 15px;
+        padding: 6px 0;
+        display: block;
+      }
+    }
+
+    /* GALERI */.foto-page {
+  padding: 140px 20px 80px;
+  background: linear-gradient(180deg, #312e81, #1e1b4b);
+  color: #e5e7eb;
+}
+
+    .foto-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .foto-header h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .foto-header p {
+      color: #94a3b8;
+    }
+
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .foto-card {
+      border-radius: 22px;
+      overflow: hidden;
+      transition: .4s ease;
+      box-shadow: 0 18px 45px rgba(0,0,0,.3);
+    }
+
+    .foto-card:hover {
+      transform: translateY(-12px);
+    }
+.foto-card {
+  border-radius: 22px;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: .4s ease;
+  box-shadow: 0 20px 45px rgba(76,29,149,.45);
+}
+.foto-card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 0 25px rgba(168,85,247,.6),
+    0 0 50px rgba(99,102,241,.45);
+}
+
+    .foto-content {
+      padding: 25px;
+    }
+
+    .foto-content .icon {
+      font-size: 32px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .foto-content h4 {
+      margin-bottom: 10px;
+    }
+
+    .foto-content p {
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+    /* BATASI UKURAN FOTO */
+.foto-card img {
+  width: 100%;
+  height: 220px;      /* ini yang bikin foto nggak kebesaran */
+  object-fit: cover; /* foto rapi, tidak gepeng */
+  display: block;
+}
+.foto-card img {
+  width: 100%;
+  height: auto;        /* PENTING: supaya tidak terpotong */
+  display: block;
+  object-fit: contain; /* foto utuh */
+  border-radius: 22px 22px 0 0;
+}
+
+    /* WARNA KOTAK */.identitas {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.sekolah {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.belajar {
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+}
+
+.lingkungan {
+  background: linear-gradient(135deg, #c084fc, #9333ea);
+}
+
+
+    /* FOOTER */
+    footer {
+      background: #020617;
+      padding: 30px 15px;
+      text-align: center;
+      color: #cbd5e1;
+    }
+
+    /* LIGHT MODE */
+    body.light-mode {
+      background: linear-gradient(180deg, #f8fafc, #e0f2fe);
+      color: #0f172a;
+    }
+
+    body.light-mode .navbar {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+    }
+
+    body.light-mode footer {
+      background: #e0f2fe;
+      color: #0f172a;
+    }
+    body.light-mode {
+  background: linear-gradient(180deg, #ede9fe, #ddd6fe, #c7d2fe);
+  color: #1e293b;
+}
+
+body.light-mode .foto-page {
+  background: linear-gradient(180deg, #ede9fe, #eef2ff);
+}
+    .foto-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.foto-card:hover {
+  box-shadow:
+    0 0 20px rgba(139,92,246,.6),
+    0 0 40px rgba(99,102,241,.4);
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.foto-card {
+  animation: fadeUp 0.8s ease forwards;
+}
+.divider {
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #22d3ee);
+}
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">JUNI WEB</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link" id="tentangToggle">Tentang ▾</a>
+          <ul class="galeri-submenu" id="tentangMenu">
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="pendidikan.html">Pendidikan</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link" id="galeriToggle">Galeri ▾</a>
+          <ul class="galeri-submenu" id="galeriMenu">
+            <li><a href="galeri-foto.html">Foto</a></li>
+            <li><a href="galeri-video.html">Video</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="kontak.html">Kontak</a>
+        </li>
+
+        <li class="nav-item ms-3">
+          <button id="darkToggle" class="btn btn-outline-light">🌙</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- GALERI -->
+<section class="foto-page">
+  <div class="foto-header">
+    <h2>Galeri Foto</h2>
+    <p>Dokumentasi identitas, kegiatan, dan lingkungan sekolah saya</p>
+  </div>
+
+  <div class="foto-grid">
+
+    <div class="foto-card identitas">
+      <img src="img/fotosaya2.jpg" alt="Foto Identitas">
+      <div class="foto-content">
+        <span class="icon">👤</span>
+        <h4>Foto Identitas Diri</h4>
+        <p>Identitas diri sebagai pelajar yang mencerminkan semangat belajar.</p>
+      </div>
+    </div>
+
+    <div class="foto-card sekolah">
+      <img src="img/foto2.jpg" alt="Kegiatan Sekolah">
+      <div class="foto-content">
+        <span class="icon">🏫</span>
+        <h4>Dokumentasi PKL</h4>
+        <p>Melatih kedisiplinan, kerja sama, dan tanggung jawab.</p>
+      </div>
+    </div>
+
+    <div class="foto-card belajar">
+      <img src="img/foto1.jpg" alt="Kegiatan Belajar">
+      <div class="foto-content">
+        <span class="icon">💻</span>
+        <h4>Dokumentasi bersama Guru</h4>
+        <p>Kegiatan dan kebersamaan di sekolah”</p>
+      </div>
+    </div>
+
+    <div class="foto-card lingkungan">
+      <img src="img/girls1.jpg" alt="Lingkungan Sekolah">
+      <div class="foto-content">
+        <span class="icon">🌱</span>
+        <h4>Lingkungan Sekolah</h4>
+        <p>Lingkungan nyaman dan mendukung pembelajaran.</p>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Juni Web</p>
+  <p>Made with ❤️ by Juni</p>
+  <p>Instagram | WhatsApp | Email</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const galeriToggle = document.getElementById("galeriToggle");
+  const galeriMenu = document.getElementById("galeriMenu");
+  const tentangToggle = document.getElementById("tentangToggle");
+  const tentangMenu = document.getElementById("tentangMenu");
+  const darkToggle = document.getElementById("darkToggle");
+
+  galeriToggle.onclick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    galeriMenu.classList.toggle("show");
+    tentangMenu.classList.remove("show");
+  };
+
+  tentangToggle.onclick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    tentangMenu.classList.toggle("show");
+    galeriMenu.classList.remove("show");
+  };
+
+  galeriMenu.onclick = e => e.stopPropagation();
+  tentangMenu.onclick = e => e.stopPropagation();
+
+  document.onclick = () => {
+    galeriMenu.classList.remove("show");
+    tentangMenu.classList.remove("show");
+  };
+
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    darkToggle.textContent = "🌞";
+  }
+
+  darkToggle.onclick = e => {
+    e.stopPropagation();
+    document.body.classList.toggle("light-mode");
+    darkToggle.textContent =
+      document.body.classList.contains("light-mode") ? "🌞" : "🌙";
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("light-mode") ? "light" : "dark"
+    );
+  };
+</script>
+
+
+</body>
+</html>

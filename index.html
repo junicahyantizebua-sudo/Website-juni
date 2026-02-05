@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Juni</title>
+
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================
+   ROOT COLOR (KUNCI)
+===================== */
+:root{
+  --bg-main: linear-gradient(180deg, #7c3aed, #6366f1);
+  --bg-soft: linear-gradient(135deg, #a78bfa, #818cf8);
+  --card-bg: rgba(255,255,255,0.15);
+  --text-light: #f8fafc;
+  --text-soft: #e5e7eb;
+  --accent: #c4b5fd;
+}
+
+/* =====================
+   RESET & GLOBAL
+===================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background: var(--bg-main);
+  color: var(--text-light);
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2{
+  font-weight:700;
+}
+
+/* =====================
+   NAVBAR (JANGAN DIUBAH)
+===================== */
+.navbar {
+  background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+}
+
+.nav-link {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  left: 0;
+  bottom: 0;
+  transition: .3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* SUBMENU */
+.mobile-submenu .submenu-list {
+  display: none;
+  list-style: none;
+  padding-left: 15px;
+}
+.submenu-list.show {display:block;}
+.submenu-list li a{
+  color:#fff;
+  font-size:14px;
+  text-decoration:none;
+}
+
+/* =====================
+   RUNNING TEXT
+===================== */
+.running-text{
+  position:fixed;
+  top:56px;
+  width:100%;
+  background:#1e1b4b;
+  z-index:999;
+  overflow:hidden;
+}
+.running-track{
+  white-space:nowrap;
+  padding-left:100%;
+  animation: run 18s linear infinite;
+}
+@keyframes run{
+  to{transform:translateX(-100%)}
+}
+
+/* =====================
+   HERO
+===================== */
+.hero-section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(rgba(15,23,42,.7), rgba(15,23,42,.7)),
+    url('img/aku.jpg') center/cover no-repeat;
+}
+
+.hero-box{
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  padding:50px;
+  border-radius:22px;
+  max-width:720px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+/* =====================
+   CARD UMUM
+===================== */
+.glass-card{
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  border-radius:22px;
+  padding:40px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  transition:.3s;
+}
+.glass-card:hover{
+  transform:translateY(-6px);
+}
+
+/* =====================
+   GALLERY
+===================== */
+.gallery img{
+  border-radius:18px;
+  transition:.3s;
+}
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* =====================
+   FOOTER (RAPI)
+===================== */
+footer{
+  background:#0f172a;
+  color:#c7d2fe;
+  text-align:center;
+  padding:40px 20px;
+}
+footer p{
+  margin:6px 0;
+  font-size:14px;
+}
+
+/* =====================
+   TOP BUTTON
+===================== */
+#topBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  border:none;
+  background:#8b5cf6;
+  color:white;
+  padding:10px 14px;
+  border-radius:50%;
+  display:none;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media(max-width:768px){
+  .hero-box{padding:30px}
+  .nav-link::after{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">JUNI WEB</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+        <li class="nav-item mobile-submenu">
+          <span class="nav-link submenu-toggle">Tentang ▾</span>
+          <ul class="submenu-list">
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="pendidikan.html">Pendidikan</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item mobile-submenu">
+          <span class="nav-link submenu-toggle">Galeri ▾</span>
+          <ul class="submenu-list">
+            <li><a href="galeri-foto.html">Foto</a></li>
+            <li><a href="galeri-video.html">Video</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- RUNNING TEXT -->
+<div class="running-text">
+  <div class="running-track">👋 Selamat datang di website personal Juni</div>
+</div>
+
+<!-- HERO -->
+<header class="hero-section">
+  <div class="container text-center">
+    <div class="hero-box mx-auto">
+      <h1 class="display-4 fw-bold">Juni Cahyanti</h1>
+      <p class="lead">Pelajar SMK | Web & Teknologi</p>
+      <p>Membangun masa depan lewat proses belajar.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="profil.html" class="btn btn-light btn-lg">Profil</a>
+        <a href="pendidikan.html" class="btn btn-outline-light btn-lg">Pendidikan</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section>
+  <div class="container">
+    <div class="glass-card text-center">
+      <h2>Tentang Saya</h2>
+      <p>Saya Juni, pelajar SMK yang tertarik pada teknologi dan pembuatan website.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILL -->
+<section>
+  <div class="container">
+    <div class="glass-card text-center">
+      <h2>Yang Saya Pelajari</h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">💻 Web Dasar</div>
+        <div class="col-md-4">📚 Belajar Mandiri</div>
+        <div class="col-md-4">🤝 Kerja Sama</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="container">
+    <div class="glass-card text-center">
+      <h2>Galeri</h2>
+      <div class="row g-4 gallery mt-4">
+        <div class="col-md-4"><img src="img/foto.jpg" class="img-fluid"></div>
+        <div class="col-md-4"><img src="img/foto1.jpg" class="img-fluid"></div>
+        <div class="col-md-4"><img src="img/foto2.jpg" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Juni Web</p>
+  <p>Made with ❤️ by Juni</p>
+  <p>Instagram | WhatsApp | Email</p>
+</footer>
+
+<button id="topBtn">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.querySelectorAll(".submenu-toggle").forEach(t=>{
+  t.onclick=()=>t.nextElementSibling.classList.toggle("show");
+});
+const topBtn=document.getElementById("topBtn");
+window.onscroll=()=>topBtn.style.display=window.scrollY>300?"block":"none";
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+</script>
+
+</body>
+</html>
